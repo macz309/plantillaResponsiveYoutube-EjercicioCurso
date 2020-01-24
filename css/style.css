@@ -1,0 +1,284 @@
+ * {
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Open Sans", sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(90px, 90px) auto;
+    grid-template-rows: 60px auto;
+    grid-template-areas:"header header"
+                        "menu main";
+    transition: all .3s ease;
+}
+
+.active{
+     grid-template-columns: minmax(300px, 18%);
+}
+
+
+/* ----------HEADER---------- */
+
+.header{
+    grid-area: header;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 20px;
+    grid-template-areas: "logo busqueda iconos";
+}
+
+.header .logo-container{
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+}
+
+.header .logo-container .menu-button{
+    border: none;
+    padding: 10px;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 100px;
+    width: 50px;
+    margin-right: 20px;
+}
+
+.header .logo-container .menu-button:hover{
+    background: #e7e7e7;
+}
+
+.header .logo-container .logo .fab{
+    color: #ff0000;
+    padding: 7px 12px;
+    font-size: 25px;
+    
+}
+
+.header .logo-container .logo{
+    font-family: "Anton",sans-serif;
+    font-size: 20px;
+}
+
+.header .search-bar{
+    grid-area: busqueda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .search-bar input{
+    min-width: 60%;
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #cccccc;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.header .search-bar button{
+    height: 35px;
+    border: 1px solid #cccccc;
+    border-left: none;
+    color: #545454;
+    background: #f8f8f8;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.header .search-bar button:hover{
+    background: #f2f2f2;
+}
+
+.header .header-buttons{
+    grid-area: iconos;
+    display: flex;
+    align-items: center;
+}
+
+.header .header-buttons button{
+    border: none;
+    background: none;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    padding: 7px 12px;
+    color: #828282;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.header .header-buttons button:hover{
+    background: #e7e7e7; ;
+}
+
+.header .header-buttons .avatar{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.header .header-buttons .avatar img{
+    vertical-align: top;
+    width: 100%;
+    border-radius: 100px;
+}
+
+/* ----------Menu---------- */
+.menu{
+    grid-area: menu;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.menu a{
+    display: block;
+    padding: 15px 35px;
+    color: #000000;
+    min-width: 800px;
+}
+
+.menu a:hover{
+    background: #e5e5e5;
+}
+
+.menu a.active{
+    background: #e5e5e4;
+    font-weight: bold;
+}
+
+.menu .fas{
+    color: #606060;
+    margin-right: 35px;
+    width: 20px;
+    text-align: center;
+}
+
+.menu a.active .fas{
+    color: #ff0000;
+}
+
+.menu hr{
+    margin: 20px 0;
+    background: 1px solid #dfdfdf;
+}
+
+/* ----------Main---------- */
+.main{
+    grid-area: main;
+    background: #f9f9f9;
+    padding: 25px 40px;
+}
+
+.main .title{
+    margin-bottom: 20px;
+}
+
+.main .grid-videos{
+    display: grid;
+    grid-gap: 40px 20px;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.main .grid-videos .video{
+    display: block;
+    width: 100%;
+}
+
+.main .grid-videos .video img{
+    width: 100%;
+}
+
+/* ----------MediaQueries---------- */
+
+/* 1200px */
+@media screen and (max-width: 1200px){
+    .main .grid-videos {
+        grid-template-columns: repeat(3,1fr);
+    }
+    .active{
+        grid-template-columns: minmax(250px, 18%);
+   }
+}
+
+/* 992px */
+@media screen and (max-width: 992px){
+    .main .grid-videos {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .header .search-bar input{
+        width: 10%;
+
+    }
+}
+
+/* 768 */
+@media screen and (max-width: 768px){
+    .container{
+        grid-template-rows: auto;
+    }
+
+    .header{
+        padding:  20px;
+        grid-template-columns: auto auto;
+        grid-gap: 5px;
+        justify-content: space-between;
+        grid-template-areas: "logo iconos"
+                            "busqueda busqueda";
+    }
+
+    .header .search-bar input{
+        min-width: auto;
+        width: 100%;
+
+    }
+}
+
+/* 768 */
+@media screen and (max-width: 768px){
+    .container{
+        grid-template-rows: auto;
+    }
+
+    .header{
+        padding:  20px;
+        grid-template-columns: auto auto;
+        grid-gap: 5px;
+        justify-content: space-between;
+        grid-template-areas: "logo iconos"
+                            "busqueda busqueda";
+    }
+
+    .header .search-bar input{
+        min-width: auto;
+        width: 100%;
+
+    }
+}
+
+/* 576 */
+@media screen and (max-width: 768px){
+    .main .grid-videos {
+        grid-template-columns: repeat(1,1fr);
+    }
+}
